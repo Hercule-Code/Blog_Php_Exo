@@ -1,0 +1,39 @@
+<?php include'includes/header.php' ?>
+<h2>Les dernieres publications</h2>
+
+<?php if(array_key_exists('pseudo', $_SESSION) == true): ?>
+
+	<?php foreach($publications as $publication): ?>
+		<h3><?= $publication['titre'] ?></h3>
+
+		<p><?= substr(htmlspecialchars($publication['contenu']),0,200) ?></p>
+		<p><?= $publication['creaDate'] ?></p>
+	
+
+	
+		<div class="editModif">
+		<!-- lien qui permets d'acceder au formulaire de modif publication -->
+			<a href="modif_pub.php?id=<?= intval($publication['id_publication']) ?>">Modifier</a>
+		<!-- lien qui permets d'acceder au detail de la publication -->
+			<a href="detail_pub.php?id=<?= intval($publication['id_publication']) ?>"">Accéder à l'article</a>
+			</div>
+
+		<?php endforeach; ?>
+
+	<?php else : ?>
+	<?php foreach($publications as $publication): ?>
+		<h3><?= $publication['titre'] ?></h3>
+
+		<p><?= substr(htmlspecialchars($publication['contenu']),0,200) ?></p>
+		<p><?= $publication['creaDate'] ?></p>
+	<?php endforeach; ?>
+
+	<nav>
+				<a href="register.php">Inscrivez-vous</a>
+				<a href="login.php">Connectez-vous</a>				
+			</nav>
+	</div>
+
+<?php endif; ?>
+
+<?php include'includes/footer.php' ?>

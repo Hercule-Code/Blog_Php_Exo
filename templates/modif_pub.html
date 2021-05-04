@@ -1,0 +1,31 @@
+<?php include 'includes/header.php'; ?>
+
+<h2>Modifier la publication</h2>
+
+<form action="modif_pub.php" method="POST">
+
+	<input type="hidden" name="idpublication" value="<?= intval($publication['id_publication']) ?>">
+
+		<ul>
+		<li>
+			<label class="mb-2" for="titre">Titre</label>
+			<input type="text" id="title" name="titre" value="<?= htmlspecialchars($publication['titre']) ?>">
+		</li>
+		<li>
+			<label class="textarea mb-2" for="contenu">Article contenu</label>
+
+                <textarea id="contenu" name="contenu" rows="15">
+                <?= htmlspecialchars($publication['contenu']) ?>
+                </textarea>
+		</li>
+
+		<li>
+                <button class="button" type="submit">Mettre à jour</button>
+                <a class="button" href="index.php">Annuler</a>
+            </li>
+		</ul>
+
+	
+</form>
+
+<?php include 'includes/footer.php'; ?>

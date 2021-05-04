@@ -1,0 +1,42 @@
+	<?php include'includes/header.php' ?>
+
+	<h2>Detail publication</h2>
+
+	<h3><?= htmlspecialchars($post['titre']) ?></h3>
+	<article>
+		<p><?= htmlspecialchars($post['contenu']) ?></p>
+	</article>
+	<p>Redigé par :  <?= htmlspecialchars($post['prenom']) ?> <?= htmlspecialchars($post['nom']) ?></p>
+	<p><em><?= $post['creaDate'] ?></em></p>
+
+	<!-- Liste des commentaires de la publiaction -->
+        <ul>
+            <?php foreach($commentaires as $commentaire): ?>
+                <li>
+                    <h4> Titre commentaire <?= htmlspecialchars($commentaire['titre']) ?></h4>
+                    <article><?= nl2br(htmlspecialchars($post['contenu'])) ?></article>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <form action="add_comments.php" method="POST">
+        <input type="hidden" name="publicationId" value="<?= intval($_GET['id']) ?>">
+        	<fieldset>
+            <legend>Nouveau commentaire</legend>
+                <ul>
+                    <li>
+                        <input type="text" id="titre" name="titre" placeholder="Titre">
+                    </li>
+                    <li>
+                        <textarea id="contenu" name="contenu" placeholder="Commentaire" rows="5"></textarea>
+                    </li>
+                    <li>
+                        <button type="submit">Ajouter</button>
+                        <a class="button " href="list.php">Annuler</a>
+                    </li>
+                 </ul>
+        </fieldset>
+
+        </form>
+
+	<?php include'includes/footer.php' ?>

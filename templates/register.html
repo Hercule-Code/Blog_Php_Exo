@@ -1,0 +1,28 @@
+<?php include'includes/header.php' ?>
+<h2>S'inscrire</h2>
+<?php if($error == true): ?>
+    <p><?= $message ?></p>
+<?php endif; ?>  
+<form action="register.php" method="POST">
+
+<label for="nom">Nom</label>
+<input name="nom" type="text" placeholder="Nom">
+
+<label for="prenom">Prénom</label>
+<input name="prenom" type="text" placeholder="Prénom" >
+
+<label for="pseudo">Pseudo</label>
+<input name="pseudo" type="text" placeholder="Pseudo">
+
+<label for="mail">Mail</label>
+<input name="mail" type="text" placeholder="Mail">
+
+
+<label for="mdp">Mot De Passe</label>
+<input name="mdp" type="password" placeholder="Mot de passe">
+
+<input type="submit" value="envoyer"/>
+	
+</form>
+
+<?php include'includes/footer.php' ?>

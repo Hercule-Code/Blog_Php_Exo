@@ -1,0 +1,32 @@
+<?php include'includes/header.php ?>
+<form action="add_pub.php" method="POST">
+
+	<ul>
+        <li>
+        	<input type="text" id="titre" name="titre" placeholder="Titre ">
+        </li>
+        <li>
+            <textarea id="contenu" name="contenu" placeholder="Article " rows="15"></textarea>
+        </li>
+        <li>
+        <label>Choisir une categorie</label>
+        <select id="categorie" name="categorie">
+        <?php foreach($categories as $categorie): ?>
+        	<option value="<?= $categorie['id_categories'] ?>"><?= $categorie['nom_categorie'] ?></option>
+        <?php endforeach; ?>	
+        </select>
+        </li>
+
+        <p>Rediger par <?= $_SESSION['pseudo'] ?></p>
+
+        <li>
+        <button class="button" type="submit">Enregistrer</button>
+        <button>
+        <a class="button" href="index.php">
+        Annuler
+        </a></button>
+        </li>
+	
+
+</form>
+<?php include'includes/footer.php' ?>

@@ -1,0 +1,18 @@
+<?php include'includes/header.php' ?>
+
+<h2>Se connecter</h2>
+<?php if($error == true): ?>
+    <p><?= $message ?></p>
+<?php endif; ?>    
+<form action="login.php" method="POST">
+
+<input type="mail" id="mail" name="mail" placeholder="email" required>
+
+<input type="password" placeholder="password" name="mdp"/>
+
+<input type="submit" value="connect"/>
+
+	
+</form>
+
+<?php include'includes/footer.php' ?>
